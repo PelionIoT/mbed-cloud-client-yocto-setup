@@ -1,0 +1,12 @@
+--- git/include/configs/rpi.h	2017-04-10 10:26:08.891093685 +0300
++++ git/include/configs/rpi.h	2017-04-10 10:25:28.639223000 +0300
+@@ -193,6 +193,9 @@
+ 
+ #define CONFIG_EXTRA_ENV_SETTINGS \
+ 	"dhcpuboot=usb start; dhcp u-boot.uimg; bootm\0" \
++	"rescuemode=0\0" \
++	"update_sw=setenv rescuemode 1; boot\0" \
++	"gpio_boot=0\0" \
+ 	ENV_DEVICE_SETTINGS \
+ 	ENV_MEM_LAYOUT_SETTINGS \
+ 	BOOTENV
