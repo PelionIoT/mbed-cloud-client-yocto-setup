@@ -1,0 +1,8 @@
+Common targets are:
+    meta-toolchain
+    meta-ide-support
+    rpi-basic-image
+    mbed-cloud-client-example-image
+    mbed-cloud-testapp-image
+
+You can also run generated qemu images with a command like 'runqemu qemux86'

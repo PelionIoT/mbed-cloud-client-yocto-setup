@@ -1,0 +1,9 @@
+.PHONY: build-raspberry-example
+
+BUILD_PATH ?= "rpi-build"
+EXTRA_CONF_FILE ?= 0
+MBED_CLOUD_CLIENT_ELF_ONLY ?= 0
+RESET_STORAGE ?= 0
+
+build-raspberry-example:
+	./build-raspberry-image.sh $(BUILD_PATH) ${EXTRA_CONF_FILE} "mbed-cloud-client" "mbed-cloud-client-example-image" ${MBED_CLOUD_CLIENT_ELF_ONLY} ${RESET_STORAGE}
