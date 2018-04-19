@@ -5,7 +5,7 @@ LICENSE = "Apache-2.0"
 LICENSE_MD5SUM = "4336ad26bb93846e47581adc44c4514d"
 SOURCE_REPOSITORY = "git://git@github.com/ARMmbed/mbed-cloud-client-example.git"
 SOURCE_BRANCH = "master"
-SRCREV = "76b2e3d585da1b042c966177c9fdd06d44a7c2c4"
+SRCREV = "2738c0ac77aacd12231b7977a4506405050a0a7a"
 APP_NAME = "mbed-cloud-client-example"
 SCRIPT_DIR = "${WORKDIR}/git/${APP_NAME}/mbed-cloud-client/update-client-hub/modules/pal-linux/scripts"
 
