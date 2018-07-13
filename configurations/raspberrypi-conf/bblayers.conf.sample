@@ -1,0 +1,23 @@
+# POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+LAYERSDIR = "##OEROOT##/../layers"
+
+BBLAYERS ?= " \
+  ##OEROOT##/meta \
+  ##OEROOT##/meta-poky \
+  ##OEROOT##/meta-yocto-bsp \
+  ${LAYERSDIR}/meta-raspberrypi \
+  ${LAYERSDIR}/meta-openembedded/meta-networking \
+  ${LAYERSDIR}/meta-openembedded/meta-python \
+  ${LAYERSDIR}/meta-openembedded/meta-oe \
+  ${LAYERSDIR}/meta-openembedded/meta-filesystems \
+  ${LAYERSDIR}/meta-openembedded/meta-initramfs \
+  ${LAYERSDIR}/meta-mbed-raspberrypi \
+  ${LAYERSDIR}/meta-mbed-cloud-client \
+  ${LAYERSDIR}/meta-general \
+  "
