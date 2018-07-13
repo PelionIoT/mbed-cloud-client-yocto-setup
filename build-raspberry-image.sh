@@ -3,7 +3,7 @@
 WORKDIR=$(pwd)
 
 # Use raspberrypi templates
-export TEMPLATECONF="${WORKDIR}/raspberrypi-conf"
+export TEMPLATECONF="${WORKDIR}/configurations/${7}"
 
 source poky/oe-init-build-env "${1}"
 
@@ -11,7 +11,7 @@ if [ -e "${MBED_CLOUD_IDENTITY_CERT_FILE_IMPORT}" ]; then
    sed -i -e "s|.*MBED_CLOUD_IDENTITY_CERT_FILE.*|MBED_CLOUD_IDENTITY_CERT_FILE = \"${MBED_CLOUD_IDENTITY_CERT_FILE_IMPORT}\"|g" conf/local.conf
 else
    echo "!!!! PATH FOR CERTIFICATION CREDENTIAL FILE MISSING !!!!!" 
-   echo "Please set file with command: export MBED_CLOUD_IDENTITY_CERT_FILE=\"Full path to file here\""
+   echo "Please set file with command: export MBED_CLOUD_IDENTITY_CERT_FILE_IMPORT=\"Full path to file here\""
    exit 1
 fi
 
@@ -30,7 +30,7 @@ fi
 
 # Set extra configation file for jenkins
 if [ "$2" -eq "1" ]; then
-    BITBAKE_EXTRA_CONF_FILE="${WORKDIR}/extra-conf/extra-bitbake.conf"
+    BITBAKE_EXTRA_CONF_FILE="${WORKDIR}/extra-bitbake.conf"
     if [ -e "${BITBAKE_EXTRA_CONF_FILE}" ]; then
        BITBAKE_EXTRA_CONF="--read ${BITBAKE_EXTRA_CONF_FILE}"
     else
