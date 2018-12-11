@@ -52,6 +52,31 @@ INITRAMFS_IMAGE_BUNDLE="1"
 # Use u-boot
 RPI_USE_U_BOOT = "1"
 
+# Downgrade kernel 
+PREFERRED_VERSION_linux-raspberrypi = "4.9.%"
+
+# Devicetree overlay file for kernel 4.9.0
+RPI_KERNEL_DEVICETREE_OVERLAYS = " \
+    overlays/hifiberry-amp.dtbo \
+    overlays/hifiberry-dac.dtbo \
+    overlays/hifiberry-dacplus.dtbo \
+    overlays/hifiberry-digi.dtbo \
+    overlays/i2c-rtc.dtbo \
+    overlays/iqaudio-dac.dtbo \
+    overlays/iqaudio-dacplus.dtbo \
+    overlays/lirc-rpi.dtbo \
+    overlays/pitft22.dtbo \
+    overlays/pitft28-resistive.dtbo \
+    overlays/pitft35-resistive.dtbo \
+    overlays/pps-gpio.dtbo \
+    overlays/rpi-ft5406.dtbo \
+    overlays/w1-gpio.dtbo \
+    overlays/w1-gpio-pullup.dtbo \
+    overlays/pi3-disable-bt.dtbo \
+    overlays/pi3-miniuart-bt.dtbo \
+    overlays/vc4-kms-v3d.dtbo \
+    "
+
 #
 # Where to place downloads
 #
@@ -281,3 +306,6 @@ TARGET_HW_IMAGE_RECIPE = "recipes-core/images/rpi-mbed-image.bb"
 #AUTHORIZED_USER_NAME = "pi"
 #AUTHORIZED__USER_HOME_DIR = "/home/${AUTHORIZED_USER_NAME}"
 #AUTHORIZED_USER_PASSWD = "Password in text string"
+# Example rootfs image size - Must result in smaller image size
+# than configured partition size - here ~2.6GB
+# IMAGE_ROOTFS_SIZE = "2388608"
