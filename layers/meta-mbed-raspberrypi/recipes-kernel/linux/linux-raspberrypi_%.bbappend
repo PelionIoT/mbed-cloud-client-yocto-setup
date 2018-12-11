@@ -9,7 +9,7 @@ do_install_append() {
     install -m 0600 ${WORKDIR}/linux-raspberrypi3-standard-build/arch/arm/boot/${KERNEL_IMAGETYPE} ${D}/usr/src/${KERNEL_IMAGETYPE}
 }
 
-FILES_kernel-base += " \
+FILES_${KERNEL_PACKAGE_NAME}-base += " \
     /usr \
     /usr/src \
     /usr/src/${KERNEL_IMAGETYPE} \

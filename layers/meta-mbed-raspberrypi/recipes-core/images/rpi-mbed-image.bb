@@ -1,5 +1,5 @@
 # Base this image on rpi-basic-image
-include recipes-core/images/rpi-hwup-image.bb
+include recipes-core/images/core-image-minimal.bb
 include recipes-core/mount-dirs/mount-dirs.bb
 
 LICENSE = "Apache-2.0"
@@ -14,5 +14,6 @@ IMAGE_INSTALL += " \
 	util-linux-agetty \
 	util-linux \
 	rng-tools \
-	e2fsprogs"
+	e2fsprogs \
+	kernel-modules"
 
