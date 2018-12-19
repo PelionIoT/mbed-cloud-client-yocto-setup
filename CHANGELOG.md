@@ -1,5 +1,9 @@
 ## Changelog for Pelion Device Management Client reference example application with Yocto
 
+### Release 2.1.1 (19.12.2018)
+
+* No changes.
+
 ### Release 2.1.0 (11.12.2018)
 
 * Yocto branch updated from Rocto to Sumo
