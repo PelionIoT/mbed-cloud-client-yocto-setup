@@ -1,6 +1,10 @@
 ## Changelog for Pelion Device Management Client reference example application with Yocto
 
-### Release 2.2.0 (25.12.2019)
+### Release 2.2.1 (28.02.2019)
+
+* No changes.
+
+### Release 2.2.0 (25.02.2019)
 
 * No changes.
 
