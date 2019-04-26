@@ -276,7 +276,7 @@ PACKAGECONFIG_append_pn-nativesdk-qemu = " sdl"
 # this doesn't mean anything to you.
 CONF_VERSION = "1"
 
-# Path to certification credentials file for mbed cloud.
+# Path to certification credentials file for client.
 #MBED_CLOUD_IDENTITY_CERT_FILE = "path to file here"
 #
 # Path to update default resources file for firmware updates.

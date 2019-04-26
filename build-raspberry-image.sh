@@ -41,7 +41,7 @@ if [ "$2" -eq "1" ]; then
 fi
 
 if [ "$5" -eq "1" ]; then
-   # Compile only mbed cloud client elf
+   # Compile only client elf
    echo "Build ${3}."
    bitbake ${BITBAKE_EXTRA_CONF} ${3} -c configure -f
    bitbake ${BITBAKE_EXTRA_CONF} ${3}
