@@ -1,5 +1,17 @@
 ## Changelog for Pelion Device Management Client reference example application with Yocto
 
+### Release 3.2.0 (12.06.2019)
+
+* Removed the dependency for requiring Mbed CLI to be globally installed. This allows also virtualenv installations of Mbed CLI to work with the provided meta-layers.
+  * Changed the meta-layer to use SSH authentication for Mbed CLI when needed. This is mostly needed when pulling in meta-layers from private repositories.
+  * Changed the ´meta-mbed-cloud-client.lib´ file to use ´https´ format instead of ´ssh´.
+
+Delta update related:
+* Modified application makefiles to call the new script for building ´tar´ package of ´rootfs´.
+* Added script ´build-raspberry-update-rootfs-tar.sh´ to build ´tar´ package of ´rootfs´ contents to be used for delta purposes.
+* Edited local configuration sample and ´fstab´ to set ´rootfs´ into "read-only" mode so that delta firmware update can be applied into the device.
+* Edited Update client ´metalayer recipe´ to include ´Prepare´ script in the image for delta processing.
+
 ### Release 3.1.1 (13.05.2019)
 
 No changes.

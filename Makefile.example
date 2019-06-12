@@ -8,3 +8,4 @@ CONFIGURATION ?= "raspberrypi-conf"
 
 build-raspberry-example:
 	./build-raspberry-image.sh $(BUILD_PATH) ${EXTRA_CONF_FILE} "mbed-cloud-client" "mbed-cloud-client-example-image" ${MBED_CLOUD_CLIENT_ELF_ONLY} ${RESET_STORAGE} ${CONFIGURATION}
+	./build-raspberry-update-rootfs-tar.sh $(BUILD_PATH) "mbed-cloud-client-example-image"
