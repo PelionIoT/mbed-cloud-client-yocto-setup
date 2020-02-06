@@ -1,6 +1,10 @@
 ## Changelog for Pelion Device Management Client reference example application with Yocto
 
-### Release 4.2.1 (20.12.2019)
+### Release 4.3.0 (06.02.2020)
+
+Cache size for rootfs changed to be dynamic.
+
+## Release 4.2.1 (20.12.2019)
 
 No changes.
 
