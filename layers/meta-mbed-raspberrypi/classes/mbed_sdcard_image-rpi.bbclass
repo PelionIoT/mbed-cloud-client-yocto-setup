@@ -1,26 +1,12 @@
 inherit image_types
 
-#
-# Create an image that can by written onto a SD card using dd.
-#
-# The disk layout used is:
-#
-#    0                      -> IMAGE_ROOTFS_ALIGNMENT         - reserved for other data
-#    IMAGE_ROOTFS_ALIGNMENT -> BOOT_SPACE                     - bootloader and kernel
-#    BOOT_SPACE             -> SDIMG_SIZE                     - rootfs
-#
-
-#                                                     Default Free space = 1.3x
-#                                                     Use IMAGE_OVERHEAD_FACTOR to add more space
-#                                                     <--------->
-#            4MiB              40MiB           SDIMG_ROOTFS
-# <-----------------------> <----------> <---------------------->
-#  ------------------------ ------------ ------------------------
-# | IMAGE_ROOTFS_ALIGNMENT | BOOT_SPACE | ROOTFS_SIZE            |
-#  ------------------------ ------------ ------------------------
-# ^                        ^            ^                        ^
-# |                        |            |                        |
-# 0                      4MiB     4MiB + 40MiB       4MiB + 40Mib + SDIMG_ROOTFS
+# Create an image that contains following partitions:
+# Boot: Raspberry Pi bootloaders, u-boot and other mandatory booting software
+# Bootflags: Flags used by the u-boot script
+# Rootfilesystem 1: Linux rootfilesystem 1. Two partitions exist for the firmware update that switches between partitions
+# Rootfilesystem 2: Linux rootfilesystem 2.
+# Config: Pelion Device Management Cloud Client configuration files
+# Cache: Temporary cache for the downloaded firmware image. Should be large enough to contain a tar.bz2 compressed rootfilesystem
 
 # This image depends on the rootfs image
 IMAGE_TYPEDEP_mbed-sdimg = "rpi-sdimg"
@@ -45,11 +31,7 @@ BOOT_SPACE ?= "40960"
 # Size of other non-rootfilesystem partitions
 BOOTFLAGS_SIZE="20480"
 CONFIG_SIZE="40960"
-CACHE_SIZE="204800"
-# Example 3GB rootfs/cache:
-# CACHE_SIZE="3388608"
-# ROOTFS_SIZE="3388608"
- 
+CACHE_SIZE="$(expr ${ROOTFS_SIZE} + ${ROOTFS_SIZE} / 2)"
 
 # Set alignment to 4MB [in KiB]
 IMAGE_ROOTFS_ALIGNMENT = "4096"
