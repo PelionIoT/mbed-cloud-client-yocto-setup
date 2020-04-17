@@ -144,25 +144,18 @@ IMAGE_CMD_mbed-sdimg () {
 	mkfs.vfat -n "${BOOTDD_VOLUME_ID}" -S 512 -C ${WORKDIR}/boot.img $BOOT_BLOCKS
 	mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/bcm2835-bootfiles/* ::/
 	if test -n "${DTS}"; then
-		# Device Tree Overlays are assumed to be suffixed by '-overlay.dtb' (4.1.x) or by '.dtbo' (4.4.9+) string and will be put in a dedicated folder
-		DT_OVERLAYS="${@split_overlays(d, 0)}"
-		DT_ROOT="${@split_overlays(d, 1)}"
+                # Copy board device trees to root folder
+                for dtbf in ${@split_overlays(d, True)}; do
+                    dtb=`basename $dtbf`
+                    mcopy -v -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/$dtb ::$dtb || bbfatal "mcopy cannot copy ${DEPLOY_DIR_IMAGE}/$dtb into boot.img"
+                done
 
-		# Copy board device trees to root folder
-		for DTB in ${DT_ROOT}; do
-			DTB_BASE_NAME=`basename ${DTB} .dtb`
-
-			mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${DTB_BASE_NAME}.dtb ::${DTB_BASE_NAME}.dtb
-		done
-
-		# Copy device tree overlays to dedicated folder
-		mmd -i ${WORKDIR}/boot.img overlays
-		for DTB in ${DT_OVERLAYS}; do
-				DTB_EXT=${DTB##*.}
-				DTB_BASE_NAME=`basename ${DTB} ."${DTB_EXT}"`
-
-			mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/${KERNEL_IMAGETYPE}-${DTB_BASE_NAME}.${DTB_EXT} ::overlays/${DTB_BASE_NAME}.${DTB_EXT}
-		done
+                # Copy device tree overlays to dedicated folder
+                mmd -i ${WORKDIR}/boot.img overlays
+                for dtbf in ${@split_overlays(d, False)}; do
+                    dtb=`basename $dtbf`
+                    mcopy -v -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/$dtb ::overlays/$dtb || bbfatal "mcopy cannot copy ${DEPLOY_DIR_IMAGE}/$dtb into boot.img"
+                done
 	fi
         if [ "${RPI_USE_U_BOOT}" = "1" ]; then
 		mcopy -i ${WORKDIR}/boot.img -s ${DEPLOY_DIR_IMAGE}/u-boot.bin ::${SDIMG_KERNELIMAGE}

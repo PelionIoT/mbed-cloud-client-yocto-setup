@@ -1,5 +1,10 @@
 ## Changelog for Pelion Device Management Client reference example application with Yocto
 
+### Release 4.4.0 (17.04.2020)
+
+-	Updated Yocto to Zeus.
+-	Fixed Yocto deployment issues with Mbed tooling.
+
 ### Release 4.3.0 (06.02.2020)
 
 Cache size for rootfs changed to be dynamic.
