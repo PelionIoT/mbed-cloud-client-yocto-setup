@@ -305,6 +305,12 @@ PREFERRED_PROVIDER_virtual/javac-native = "ecj-bootstrap-native"
 # Set value to 1 for enabling RESET STORAGE
 RESET_STORAGE = 0
 
+# Set value to 1 for enabling FOTA
+FOTA_ENABLE = 0
+
+# Set value to 1 for enabling FOTA TRACE
+FOTA_TRACE = 0
+
 # This needed e.g. for calling pip module binaries like mbed-cli commands. If local
 # environment is using some other directory then override binlocaldir.
 binlocaldir ?= "${exec_prefix}/local/bin"

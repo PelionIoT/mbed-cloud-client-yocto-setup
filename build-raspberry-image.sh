@@ -28,6 +28,20 @@ else
    sed -i -e "s|RESET_STORAGE =.*|RESET_STORAGE = \"0\"|g" conf/local.conf
 fi
 
+# Enable/Disable FOTA
+if  [ "$8" -eq "1" ]; then
+   sed -i -e "s|FOTA_ENABLE =.*|FOTA_ENABLE = \"1\"|g" conf/local.conf
+else
+   sed -i -e "s|FOTA_ENABLE =.*|FOTA_ENABLE = \"0\"|g" conf/local.conf
+fi
+
+# Enable/Disable FOTA TRACE
+if  [ "$9" -eq "1" ]; then
+   sed -i -e "s|FOTA_TRACE =.*|FOTA_TRACE = \"1\"|g" conf/local.conf
+else
+   sed -i -e "s|FOTA_TRACE =.*|FOTA_TRACE = \"0\"|g" conf/local.conf
+fi
+
 # Set extra configation file for jenkins
 if [ "$2" -eq "1" ]; then
     BITBAKE_EXTRA_CONF_FILE="${WORKDIR}/extra-bitbake.conf"

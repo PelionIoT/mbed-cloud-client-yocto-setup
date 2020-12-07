@@ -4,8 +4,10 @@ BUILD_PATH ?= "rpi-build"
 EXTRA_CONF_FILE ?= 0
 MBED_CLOUD_CLIENT_ELF_ONLY ?= 0
 RESET_STORAGE ?= 0
+FOTA_ENABLE ?= 0
+FOTA_TRACE ?= 0
 CONFIGURATION ?= "raspberrypi-conf"
 
 build-raspberry-example:
-	./build-raspberry-image.sh $(BUILD_PATH) ${EXTRA_CONF_FILE} "mbed-cloud-client" "mbed-cloud-client-example-image" ${MBED_CLOUD_CLIENT_ELF_ONLY} ${RESET_STORAGE} ${CONFIGURATION}
+	./build-raspberry-image.sh $(BUILD_PATH) ${EXTRA_CONF_FILE} "mbed-cloud-client" "mbed-cloud-client-example-image" ${MBED_CLOUD_CLIENT_ELF_ONLY} ${RESET_STORAGE} ${CONFIGURATION} ${FOTA_ENABLE} ${FOTA_TRACE}
 	./build-raspberry-update-rootfs-tar.sh $(BUILD_PATH) "mbed-cloud-client-example-image"

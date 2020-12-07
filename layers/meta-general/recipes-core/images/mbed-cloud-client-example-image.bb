@@ -7,5 +7,6 @@ LICENSE = "Apache-2.0"
 
 # Include modules in rootfs
 IMAGE_INSTALL += " \
-	mbed-cloud-client\
-	update-scripts"
+	mbed-cloud-client"
+
+IMAGE_INSTALL_append = "${@'' if FOTA_ENABLE == '1' else ' update-scripts '}"
