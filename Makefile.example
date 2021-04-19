@@ -4,8 +4,8 @@ BUILD_PATH ?= "rpi-build"
 EXTRA_CONF_FILE ?= 0
 MBED_CLOUD_CLIENT_ELF_ONLY ?= 0
 RESET_STORAGE ?= 0
-FOTA_ENABLE ?= 0
-FOTA_TRACE ?= 0
+FOTA_ENABLE ?= 1
+FOTA_TRACE ?= 1
 CONFIGURATION ?= "raspberrypi-conf"
 
 build-raspberry-example:
