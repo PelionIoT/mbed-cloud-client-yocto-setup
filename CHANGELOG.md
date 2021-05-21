@@ -1,6 +1,10 @@
 ## Changelog for Pelion Device Management Client reference example application with Yocto
 
-### Release 4.8.0 (19.04.2021)
+### Release 4.9.0 (15.05.2021)
+
+Changed the default compilation profile to debug as an a workaround for `FORTIFY_SOURCE` compilation.
+
+### Release 4.8.0 (24.03.2021)
 
 No changes.
 
