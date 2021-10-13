@@ -1,65 +1,73 @@
 ## Changelog for Pelion Device Management Client reference example application with Yocto
 
+### Release 4.11.1 (11.10.2021)
+
+Updated to Device Management Client 4.11.1.
+
 ### Release 4.11.0 (17.09.2021)
 
-No changes.
+Updated to Device Management Client 4.11.0.
 
 ### Release 4.10.0 (07.07.2021)
 
-No changes.
+Updated to Device Management Client 4.10.0.
 
 ### Release 4.9.1 (17.06.2021)
 
-No changes.
+Updated to Device Management Client 4.9.1.
 
 ### Release 4.9.0 (21.05.2021)
 
-Changed the default compilation profile to debug as an a workaround for `FORTIFY_SOURCE` compilation.
+- Updated to Device Management Client 4.9.0.
+- Changed the default compilation profile to debug as an a workaround for `FORTIFY_SOURCE` compilation.
 
 ### Release 4.8.0 (24.03.2021)
 
-No changes.
+Updated to Device Management Client 4.8.0.
 
 ### Release 4.7.1 (28.01.2021)
 
-No changes.
+Updated to Device Management Client 4.7.1.
 
 ### Release 4.7.0 (07.12.2020)
 
-Support for new update mechanism and scripts.
+- Updated to Device Management Client 4.7.0.
+- Support for new update mechanism and scripts.
 
 ### Release 4.6.0 (24.08.2020)
 
-No changes.
+Updated to Device Management Client 4.6.0.
 
 ### Release 4.5.0 (12.06.2020)
 
-No changes.
+Updated to Device Management Client 4.5.0.
 
 ### Release 4.4.0 (17.04.2020)
 
+- Updated to Device Management Client 4.4.0.
 -	Updated Yocto to Zeus.
 -	Fixed Yocto deployment issues with Mbed tooling.
 
 ### Release 4.3.0 (06.02.2020)
 
-Cache size for rootfs changed to be dynamic.
+- Updated to Device Management Client 4.3.0.
+- Cache size for rootfs changed to be dynamic.
 
 ## Release 4.2.1 (20.12.2019)
 
-No changes.
+Updated to Device Management Client 4.2.1.
 
 ### Release 4.2.0 (18.12.2019)
 
-No changes.
+Updated to Device Management Client 4.2.0.
 
 ### Release 4.1.0 (28.11.2019)
 
-No changes.
+Updated to Device Management Client 4.1.0.
 
 ### Release 4.0.0 (25.09.2019)
 
-No changes.
+Updated to Device Management Client 4.0.0.
 
 ### Release 3.4.0 (28.08.2019)
 
